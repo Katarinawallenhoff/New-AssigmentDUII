@@ -21,6 +21,32 @@ function createBoxes() {
  createBoxes();
 
 
+ function findCity(userInput) {
+    let cityFound = false;
+    for (let city of cities) {
+        if (userInput.toLowerCase() === city.name.toLowerCase()) {
+            h2Element.textContent = `${city.name} (${city.country})`;
+            cityFound = true;
+            document.title = `${city.name}`;
+            break;
+        }
+    }
+ 
+ 
+    if (!cityFound) {
+        h2Element.textContent = `${userInput} finns inte i databasen`;
+        document.title = `Not found`;
+        h3Element.textContent = ""; 
+    }
+ 
+ 
+    return cityFound;
+ }
+ 
+ 
+ const isCityFound = findCity(userInput);
+
+
 
 
 
