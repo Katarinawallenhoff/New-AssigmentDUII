@@ -9,16 +9,16 @@ const h3Element = document.querySelector("h3");
 let userInput = prompt("Skriv in en stad");
 
 
-function cityNames() {
-   let cityNameArray = [];
-   for (let city of cities) {
-       cityNameArray.push(city.name);
-   }
-   return cityNameArray;
-}
-
-
-let cityArray = cityNames();
+function createBoxes() {
+    for (let i = 0; i < cities.length; i++) {
+        let cityDiv = document.createElement("div");
+        cityNameTable.appendChild(cityDiv);
+        cityDiv.classList.add("cityBox");
+        cityDiv.textContent = cities[i].name;
+        cityDiv.id = `city-${cities[i].id}`; 
+    }
+ }
+ createBoxes();
 
 
 
