@@ -46,6 +46,23 @@ function createBoxes() {
  
  const isCityFound = findCity(userInput);
 
+ function findCityId(userInput) {
+    let cityInArray = null;
+ 
+ 
+    for (let city of cities) {
+        if (city.name.toLocaleLowerCase() === userInput.toLocaleLowerCase()) {
+            cityInArray = city.id;
+            break;
+        }
+    }
+ 
+ 
+    return cityInArray;
+ }
+ 
+ 
+ const cityId = findCityId(userInput);
 
 
 
