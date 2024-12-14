@@ -113,6 +113,29 @@ function createBoxes() {
     }
  }
  
+ function highlightCityGreen(cityId, distance) {
+    let closestCityName;
+    let theDistance = distance.distance / 10;
+    let textId = document.querySelector("#closest");
+ 
+ 
+    for (let city of cities) {
+        if (cityId == city.id) {
+            closestCityName = city.name;
+            break;
+        }
+    }
+ 
+ 
+    let cityDiv = document.querySelector(`#city-${cityId}`);
+    if (cityDiv) {
+        cityDiv.classList.add("closest");
+        cityDiv.textContent = `${closestCityName} ligger ${theDistance} mil bort`;
+    }
+ 
+ 
+    textId.textContent = (closestCityName);  
+ }
  
 
 
