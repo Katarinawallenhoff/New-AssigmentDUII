@@ -136,6 +136,31 @@ function createBoxes() {
  
     textId.textContent = (closestCityName);  
  }
+
+ function highlightCityBlue(cityId, distance) {
+    let furthestCityName;
+    let theDistance = distance.distance / 10;
+    let textId = document.querySelector("#furthest");
+ 
+ 
+    for (let city of cities) {
+        if (cityId == city.id) {
+            furthestCityName = city.name;
+            break;
+        }
+    }
+ 
+ 
+    let cityDiv = document.querySelector(`#city-${cityId}`);
+    if (cityDiv) {
+        cityDiv.classList.add("furthest");
+        cityDiv.textContent = `${furthestCityName} ligger ${theDistance} mil bort`;
+    }
+ 
+ 
+    textId.textContent = (furthestCityName); 
+ }
+ 
  
 
 
