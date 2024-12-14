@@ -162,7 +162,37 @@ function createBoxes() {
  }
  
  
-
+ function displayCityDistances() {
+    let container = document.getElementById("table");
+    let headerRow = "<div class='cell'></div>";
+    for (let i = 0; i < cities.length; i++) {
+        headerRow += "<div class='cell head_column'>" + i + "</div>";
+    }
+    container.innerHTML = headerRow;
+    for (let i = 0; i < cities.length; i++) {
+        let city = cities[i];
+        let row = "<div class='cell head_row'>" + city.id + " - " + city.name + "</div>";
+ 
+ 
+        for (let j = 0; j < cities.length; j++) {
+            let otherCity = cities[j];
+            let dist = null;
+            for (let d = 0; d < distances.length; d++) {
+                if (
+                    (distances[d].city1 === city.id && distances[d].city2 === otherCity.id) ||
+                    (distances[d].city1 === otherCity.id && distances[d].city2 === city.id)
+                ) {
+                    dist = distances[d].distance;
+                    break;
+                }
+            }
+            let cellClass = (i % 2 === 0 ? 'even_row' : '') + ' ' + (j % 2 === 0 ? 'even_col' : '');
+            row += "<div class='cell " + cellClass + "'>" + (dist ? (dist / 10).toFixed(0) : "") + "</div>";
+        }
+        container.innerHTML += row;
+    }
+ }
+ displayCityDistances();
 
 
 
