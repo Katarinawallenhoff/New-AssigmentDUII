@@ -194,6 +194,14 @@ function createBoxes() {
  }
  displayCityDistances();
 
+ if (isCityFound) {
+    highlightCityBlack(cityId);
+    const result = findFurthestAndClosestCity(cityId);
+    highlightCityGreen(result.closestCityId, result.closestCity);
+    highlightCityBlue(result.furthestCityId, result.furthestCity);
+ }
+ 
+
 
 
 
