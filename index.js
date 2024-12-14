@@ -104,6 +104,15 @@ function createBoxes() {
         furthestCityId
     };
  }
+
+
+ function highlightCityBlack(cityId) {
+    let cityDiv = document.querySelector(`#city-${cityId}`);
+    if (cityDiv) {
+        cityDiv.classList.add("target");
+    }
+ }
+ 
  
 
 
